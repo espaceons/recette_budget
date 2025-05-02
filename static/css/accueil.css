@@ -1,0 +1,130 @@
+/* static/css/accueil.css */
+
+/* Styles généraux pour la page d'accueil */
+main .container { /* Si vous utilisez un conteneur dans votre base.html main */
+    max-width: 800px;
+    margin: 20px auto; /* Centre le contenu et ajoute un peu d'espace */
+    padding: 0 20px;
+}
+
+h1 {
+    color: #333; /* Couleur de titre */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #555; /* Couleur du texte */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Styles pour le formulaire */
+form {
+    background-color: #f9f9f9; /* Fond léger pour le formulaire */
+    padding: 30px;
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    max-width: 500px; /* Largeur max du formulaire */
+    margin: 0 auto; /* Centre le formulaire */
+}
+
+/* Styles pour les paragraphes générés par form.as_p */
+form p {
+    margin-bottom: 15px;
+    text-align: left; /* Alignement du texte des labels et champs */
+}
+
+/* Styles pour les labels */
+form label {
+    display: block; /* Chaque label sur une nouvelle ligne */
+    margin-bottom: 5px;
+    font-weight: bold; /* Texte en gras */
+    color: #666;
+}
+
+/* Styles pour les champs de saisie (input, select, textarea) */
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+    width: 100%; /* Largeur de 100% du conteneur parent */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclut padding et border dans la largeur */
+    font-size: 1em;
+}
+
+/* Styles spécifiques pour les boutons radio */
+form ul.errorlist { /* Styles par défaut pour les erreurs de formulaire */
+    color: red;
+    margin-bottom: 10px;
+}
+
+form ul { /* Style par défaut pour les ChoiceField avec RadioSelect */
+    list-style: none; /* Retire les puces */
+    padding: 0;
+}
+
+form ul li {
+    margin-bottom: 5px;
+}
+
+form ul li input[type="radio"] {
+     width: auto; /* Les radios n'ont pas besoin de width: 100% */
+     margin-right: 5px;
+     vertical-align: middle; /* Aligne le radio bouton avec le texte */
+}
+
+form ul li label {
+    display: inline-block; /* Label en ligne avec le bouton radio */
+    font-weight: normal; /* Pas de gras pour les labels des radios */
+    vertical-align: middle;
+}
+
+
+/* Styles pour le bouton de soumission */
+form button[type="submit"] {
+    background-color: #5cb85c; /* Couleur de fond verte */
+    color: white; /* Texte blanc */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Curseur pointeur au survol */
+    font-size: 1.1em;
+    display: block; /* Bouton sur sa propre ligne */
+    width: 100%; /* Largeur de 100% */
+    margin-top: 20px;
+    transition: background-color 0.3s ease; /* Animation douce au survol */
+}
+
+form button[type="submit"]:hover {
+    background-color: #4cae4c; /* Couleur plus foncée au survol */
+}
+
+/* Styles si vous avez des messages (ex: via le framework de messages Django) */
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.messages li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.messages .success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.messages .error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+/* etc. pour warning, info */

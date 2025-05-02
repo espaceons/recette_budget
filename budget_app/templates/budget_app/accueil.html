@@ -1,0 +1,28 @@
+{# budget_app/templates/budget_app/accueil.html #}
+
+
+{% extends 'base.html' %} {# Indique que ce template hérite de base.html #}
+{% load static %}
+
+{% block title %}Accueil{% endblock %} {# Remplace le contenu du bloc title dans base.html #}
+
+{% block content %} {# Remplace le contenu du bloc content dans base.html #}
+    <h1>Bienvenue sur l'application Budget Cuisine !</h1>
+
+    <p>Entrez votre budget pour trouver une recette ou un restaurant.</p>
+
+    {# Formulaire BudgetForm (comme vu précédemment) #}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Chercher</button>
+    </form>
+
+{% endblock %}
+
+{# Vous pouvez aussi surcharger d'autres blocs si nécessaire #}
+{#
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/accueil.css' %}">
+{% endblock %}
+#}

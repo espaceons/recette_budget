@@ -1,0 +1,11 @@
+{# Dans budget_app/templates/budget_app/resultats.html #}
+{% if recettes %}
+    <ul>
+        {% for recette in recettes %}
+            <li>
+                {# Notez l'utilisation du nom d'URL qualifié par l'application #}
+                <a href="{% url 'recette_detail' pk=recette.id %}">{{ recette.nom }}</a> (Coût estimé : {{ recette.cout_estime }})
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

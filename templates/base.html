@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr"> {# Ou la langue de votre site #}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Super Site{% endblock %} | Budget Cuisine</title> {# Titre par défaut, peut être surchargé #}
+    {% load static %} {# Charge le template tag 'static' pour les fichiers statiques #}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> {# Lien vers votre fichier CSS (créer un dossier static/css dans une app ou au projet) #}
+    {% block extra_head %}{% endblock %} {# Bloc pour ajouter des choses spécifiques à la tête (CSS, JS, meta) #}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+
+    <header>
+        {% include 'includes/nav.html' %} {# Inclut le contenu de nav.html ici #}
+    </header>
+
+    <main class="container mt-4">
+        {% block content %}
+            {# C'est ici que le contenu spécifique de chaque page sera inséré #}
+            {# Laissez vide ou mettez du contenu par défaut #}
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% include 'includes/footer.html' %} {# Inclut le contenu de footer.html ici #}
+    </footer>
+
+    {% block extra_body %}{% endblock %} {# Bloc pour ajouter des scripts JS à la fin du body #}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{# recipes/templates/recipes/recette_detail.html #}
+{% extends 'base.html' %} {# Hérite de notre template de base #}
+
+{% block title %}{{ object.nom }}{% endblock %} {# Utilise le nom de la recette pour le titre #}
+
+{% block content %} {# Remplit le bloc de contenu principal #}
+
+    <h1>{{ object.nom }}</h1> {# 'object' est la variable par défaut dans DetailView #}
+
+    {% if object.image %}
+        <img src="{{ object.image.url }}" alt="{{ object.nom }}" style="max-width: 300px; height: auto;">
+    {% endif %}
+
+    <p><strong>Coût estimé :</strong> {{ object.cout_estime }}</p>
+    <p><strong>Description :</strong> {{ object.description_courte }}</p>
+
+    <h2>Ingrédients :</h2>
+    {# Utilise pre pour préserver le formatage si les ingrédients sont listés ligne par ligne #}
+    <pre>{{ object.ingredients }}</pre>
+
+    <h2>Instructions :</h2>
+    {# Utilise pre pour préserver le formatage si les instructions sont étape par étape #}
+    <pre>{{ object.instructions }}</pre>
+
+    {# Liens vers les opérations Update et Delete pour cette recette #}
+    <p>
+        <a href="{% url 'recette_update' pk=object.pk %}">Modifier cette recette</a> |
+        <a href="{% url 'recette_delete' pk=object.pk %}">Supprimer cette recette</a>
+    </p>
+
+    {# Lien de retour vers la liste des recettes #}
+    <p><a href="{% url 'recette_list' %}">Retour à la liste des recettes</a></p>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{# recipes/templates/recipes/recette_confirm_delete.html #}
+{% extends 'base.html' %} {# Hérite de notre template de base #}
+
+{% block title %}Supprimer la recette - {{ object.nom }}{% endblock %} {# Titre #}
+
+{% block content %} {# Remplit le bloc de contenu principal #}
+
+    <h1>Supprimer la recette "{{ object.nom }}" ?</h1>
+
+    <p>Êtes-vous sûr de vouloir supprimer la recette "<strong>{{ object.nom }}</strong>" ? Cette action est irréversible.</p>
+
+    {# Formulaire POST pour envoyer la confirmation de suppression #}
+    <form method="post">
+        {% csrf_token %} {# Protection CSRF #}
+        <button type="submit">Oui, supprimer</button>
+        {# Lien d'annulation : retourne à la page de détail #}
+        <a href="{% url 'recette_detail' pk=object.pk %}">Annuler</a>
+    </form>
+
+{% endblock %}

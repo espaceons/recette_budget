@@ -1,0 +1,52 @@
+
+{% load static %}
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <!-- Logo/Marque -->
+                <a class="navbar-brand d-flex justify-content-center mb-3" href="#">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo" height="40">
+                </a>
+                
+                <!-- Texte du footer -->
+                <p class="mb-3">
+                    Découvrez et partagez vos meilleures recettes culinaires.<br>
+                    Trouvez l'inspiration pour chaque occasion.
+                </p>
+                
+                <!-- Menu du footer -->
+                <ul class="nav justify-content-center mb-3">
+                    <li class="nav-item">
+                        <a href="{% url 'accueil' %}" class="nav-link px-2 text-white">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'recette_list' %}" class="nav-link px-2 text-white">Recettes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'about' %}" class="nav-link px-2 text-white">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'contact' %}" class="nav-link px-2 text-white">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'privacy' %}" class="nav-link px-2 text-white">Confidentialité</a>
+                    </li>
+                </ul>
+                
+                <!-- Icônes sociales -->
+                <div class="mb-3">
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-pinterest fs-4"></i></a>
+                </div>
+                
+                <!-- Copyright -->
+                <p class="mb-0">
+                    &copy; {% now "Y" %} MonLivreDeRecettes. Tous droits réservés.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

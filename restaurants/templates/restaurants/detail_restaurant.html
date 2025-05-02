@@ -1,0 +1,14 @@
+<h1>{{ object.nom }}</h1> {# 'object' ou 'recette' est disponible par défaut #}
+{% if object.image %}
+    <img src="{{ object.image.url }}" alt="{{ object.nom }}" width="300">
+{% endif %}
+<p><strong>Coût estimé :</strong> {{ object.cout_estime }}</p>
+<p><strong>Description :</strong> {{ object.description_courte }}</p>
+<h2>Ingrédients :</h2>
+<pre>{{ object.ingredients }}</pre>
+<h2>Instructions :</h2>
+<pre>{{ object.instructions }}</pre>
+
+<p><a href="{% url 'recette_update' pk=object.pk %}">Modifier cette recette</a></p>
+<p><a href="{% url 'recette_delete' pk=object.pk %}">Supprimer cette recette</a></p>
+<p><a href="{% url 'recette_list' %}">Retour à la liste des recettes</a></p>

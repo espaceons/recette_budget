@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <!-- En-tête -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-5 fw-bold mb-3">Contactez-Nous</h1>
+                <p class="lead text-muted">Une question, une suggestion ou juste envie de discuter cuisine ? Nous sommes à votre écoute.</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Formulaire de contact -->
+            <div class="col-lg-7">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4 p-md-5">
+                        <h2 class="h4 fw-bold mb-4">Envoyez-nous un message</h2>
+                        
+                        {% if messages %}
+                        <div class="mb-4">
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                <i class="bi {% if message.tags == 'success' %}bi-check-circle{% else %}bi-exclamation-triangle{% endif %} me-2"></i>
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <form method="post" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            
+                            <div class="row g-3">
+                                <!-- Nom -->
+                                <div class="col-md-6">
+                                    <label for="id_name" class="form-label">Votre nom *</label>
+                                    <input type="text" class="form-control" id="id_name" name="name" required>
+                                    <div class="invalid-feedback">
+                                        Veuillez entrer votre nom.
+                                    </div>
+                                </div>
+                                
+                                <!-- Email -->
+                                <div class="col-md-6">
+                                    <label for="id_email" class="form-label">Votre email *</label>
+                                    <input type="email" class="form-control" id="id_email" name="email" required>
+                                    <div class="invalid-feedback">
+                                        Veuillez entrer une adresse email valide.
+                                    </div>
+                                </div>
+                                
+                                <!-- Sujet -->
+                                <div class="col-12">
+                                    <label for="id_subject" class="form-label">Sujet *</label>
+                                    <select class="form-select" id="id_subject" name="subject" required>
+                                        <option value="" selected disabled>Choisissez un sujet...</option>
+                                        <option value="question">Question générale</option>
+                                        <option value="technical">Problème technique</option>
+                                        <option value="partnership">Demande de partenariat</option>
+                                        <option value="other">Autre</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Veuillez sélectionner un sujet.
+                                    </div>
+                                </div>
+                                
+                                <!-- Message -->
+                                <div class="col-12">
+                                    <label for="id_message" class="form-label">Votre message *</label>
+                                    <textarea class="form-control" id="id_message" name="message" rows="5" required></textarea>
+                                    <div class="invalid-feedback">
+                                        Veuillez écrire votre message.
+                                    </div>
+                                </div>
+                                
+                                <!-- Bouton -->
+                                <div class="col-12">
+                                    <button class="btn btn-primary px-4 py-2" type="submit">
+                                        <i class="bi bi-send me-2"></i>Envoyer le message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Informations de contact -->
+            <div class="col-lg-5">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4 p-md-5">
+                        <h2 class="h4 fw-bold mb-4">Nos coordonnées</h2>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="bi bi-geo-alt-fill text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="h6 fw-bold mb-1">Adresse</h3>
+                                <p class="mb-0">123 Rue Gourmande<br>75000 Paris, France</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="bi bi-telephone-fill text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="h6 fw-bold mb-1">Téléphone</h3>
+                                <p class="mb-0">
+                                    <a href="tel:+33123456789" class="text-decoration-none">+33 1 23 45 67 89</a><br>
+                                    Lundi-Vendredi, 9h-18h
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="bg-primary bg-opacity-10 rounded-circle p-3 me-3">
+                                <i class="bi bi-envelope-fill text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="h6 fw-bold mb-1">Email</h3>
+                                <p class="mb-0">
+                                    <a href="mailto:contact@monlivrederecettes.com" class="text-decoration-none">contact@monlivrederecettes.com</a><br>
+                                    Réponse sous 24h
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <h3 class="h5 fw-bold mb-3">Suivez-nous</h3>
+                        <div class="d-flex">
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle me-2">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle me-2">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle me-2">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle">
+                                <i class="bi bi-pinterest"></i>
+                            </a>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="ratio ratio-16x9 rounded overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253.81748695124563!2d10.96787616479147!3d35.64313494749622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130217ef0bd7d55b%3A0x84ce17a72462defb!2sThe%20K%20I%20N%20G%20Food!5e1!3m2!1sfr!2stn!4v1746181716501!5m2!1sfr!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Validation côté client Bootstrap
+(function () {
+    'use strict'
+    
+    const forms = document.querySelectorAll('.needs-validation')
+    
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+</script>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <!-- En-tête -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-4 fw-bold mb-3">À propos de Nous</h1>
+                <p class="lead text-muted">Découvrez l'histoire derrière votre compagnon culinaire préféré</p>
+            </div>
+        </div>
+
+        <!-- Section Notre Histoire -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <img src="{% static 'images/about-team.jpg' %}" alt="Notre équipe" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <h2 class="fw-bold mb-4">Notre Histoire</h2>
+                <p class="mb-4">Fondé en 2023, MonLivreDeRecettes est né de la passion partagée de ses créateurs pour la cuisine et la technologie. Ce qui a commencé comme un simple projet entre amis est rapidement devenu une communauté florissante de foodies passionnés.</p>
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary rounded-circle p-2 me-3">
+                        <i class="bi bi-book text-white fs-4"></i>
+                    </div>
+                    <p class="mb-0">Plus de 1 000 recettes partagées</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="bg-primary rounded-circle p-2 me-3">
+                        <i class="bi bi-people text-white fs-4"></i>
+                    </div>
+                    <p class="mb-0">Une communauté de plus de 10 000 membres</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Notre Mission -->
+        <div class="row align-items-center mb-5 flex-lg-row-reverse">
+            <div class="col-lg-6">
+                <img src="{% static 'images/about-mission.jpg' %}" alt="Notre mission" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <h2 class="fw-bold mb-4">Notre Mission</h2>
+                <p class="mb-4">Nous croyons que cuisiner devrait être accessible à tous, quel que soit votre budget ou niveau de compétence. Notre plateforme a été conçue pour :</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Simplifier la planification des repas</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Aider à cuisiner selon son budget</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Créer une communauté culinaire bienveillante</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Rendre la cuisine amusante et créative</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section Équipe -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="fw-bold mb-5">Rencontrez Notre Équipe</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="{% static 'images/team1.jpg' %}" class="card-img-top" alt="Chef Marie">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Marie D.</h5>
+                                <p class="text-muted">Chef Cuisinière</p>
+                                <p class="card-text small">15 ans d'expérience en gastronomie française</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="{% static 'images/team2.jpg' %}" class="card-img-top" alt="Développeur Jean">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Jean T.</h5>
+                                <p class="text-muted">Développeur Principal</p>
+                                <p class="card-text small">Passionné par la cuisine et les technologies web</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <img src="{% static 'images/team3.jpg' %}" class="card-img-top" alt="Designer Sophie">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Sophie L.</h5>
+                                <p class="text-muted">Designer UX/UI</p>
+                                <p class="card-text small">Crée des expériences utilisateur intuitives</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center bg-primary p-5 rounded-3 text-white">
+                <h3 class="fw-bold mb-4">Prêt à commencer votre aventure culinaire ?</h3>
+                <a href="{% url 'recette_list' %}" class="btn btn-light btn-lg px-4 me-2">Explorer les recettes</a>
+                <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg px-4">Nous contacter</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .bg-light {
+        background-color: #f8f9fa!important;
+    }
+    .rounded-circle {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+{% endblock %}

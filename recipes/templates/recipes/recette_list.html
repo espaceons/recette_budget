@@ -1,0 +1,54 @@
+{# recipes/templates/recipes/recette_list.html #}
+{% extends 'base.html' %} {# Hérite de notre template de base #}
+
+{% block title %}Liste des Recettes{% endblock %} {# Définit le titre de la page #}
+
+{# Le block content est déjà dans un container Bootstrap grâce à base.html #}
+{% block content %} {# Remplit le bloc de contenu principal #}
+
+    <h1 class="mb-4 text-center">Liste des Recettes</h1> {# mb-4 et text-center pour le style Bootstrap #}
+
+    {# Lien pour ajouter une nouvelle recette stylisé comme un bouton Bootstrap #}
+    <p class="text-center"> {# Centrage du paragraphe contenant le bouton #}
+        <a href="{% url 'recette_create' %}" class="btn btn-primary mb-3">
+            Ajouter une nouvelle recette
+        </a>
+    </p>
+
+    {% if recettes %} {# 'recettes' est la variable passée par la RecetteListView (context_object_name) #}
+        {# Utilisation de classes Bootstrap pour une liste groupée #}
+        <ul class="list-group">
+            {% for recette in recettes %}
+                {# Chaque élément de liste stylisé comme un élément de liste groupée #}
+                {# On utilise flexbox pour aligner l'image et le contenu #}
+                <li class="list-group-item d-flex align-items-center">
+
+                    {% if recette.image %}
+                        {# Image stylisée comme une miniature et avec marge droite #}
+                        <img src="{{ recette.image.url }}" alt="{{ recette.nom }}" class="img-thumbnail me-3" style="max-width: 80px; height: auto;">
+                    {% endif %}
+
+                    {# Un conteneur flexible pour le nom, la description et les liens #}
+                    <div class="flex-grow-1"> {# Prend l'espace restant #}
+                         <h2 class="h5 mb-1">{{ recette.nom }}</h2> {# Titre de recette plus petit et avec petite marge en bas #}
+                         <p class="mb-1 text-muted">{{ recette.description_courte|truncatechars:150 }}</p> {# Texte muté, petite marge en bas #}
+                         <small class="text-success">Coût estimé : {{ recette.cout_estime }}</small> {# Texte plus petit et vert #}
+                    </div>
+
+                    {# Un conteneur pour les boutons d'action, aligné à droite #}
+                    <div class="ms-3"> {# ms-3 ajoute une marge à gauche #}
+                         {# Liens stylisés comme de petits boutons secondaires #}
+                         <a href="{% url 'recette_detail' pk=recette.pk %}" class="btn btn-sm btn-secondary">Voir</a>
+                         <a href="{% url 'recette_update' pk=recette.pk %}" class="btn btn-sm btn-secondary">Modifier</a>
+                         <a href="{% url 'recette_delete' pk=recette.pk %}" class="btn btn-sm btn-danger">Supprimer</a> {# Bouton supprimer en rouge #}
+                    </div>
+
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {# Message si aucune recette, centré #}
+        <p class="text-center">Aucune recette n'est disponible pour le moment.</p>
+    {% endif %}
+
+{% endblock %}
