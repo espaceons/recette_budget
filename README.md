@@ -1,3 +1,7 @@
+
+![Capture d’écran 2025-05-02 121319](https://github.com/user-attachments/assets/d303b88a-c6af-4c1e-af1f-cdb5a9ef0b80)
+
+
 L'application web a pour but d'aider les utilisateurs à optimiser leur budget alimentaire. En entrant un montant d’argent, l’utilisateur peut :
 
 Cuisiner un repas adapté à son budget grâce à des recettes détaillées.
